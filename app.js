@@ -31,28 +31,30 @@ function listaAmigos(){
 }
 
 function sortearAmigo(){
-let cantidad = amigos.length;
-if (cantidad >1){
-    let sorteo = Math.floor(Math.random()*((amigos.length)));
-    console.log(posicionSorteada);
-    if(posicionSorteada.length == amigos.length){
-        alert("Todos los amigos sorteados");
-        reiniciarAmigo();
-    }else{
-    if(posicionSorteada.includes(sorteo)){
-    return sortearAmigo();
-    }else{
-        posicionSorteada.push(sorteo);
-        console.log(sorteo);
-        let amigoSorteado = amigos[sorteo];
-        document.getElementById('listaAmigos').innerHTML="";
-        document.getElementById('resultado').innerHTML = `<li>${amigoSorteado}<li>`;
+    
+    let cantidad = amigos.length;
+    if (cantidad >1){
+        document.querySelector('#plus').setAttribute('disabled','true');
+        let sorteo = Math.floor(Math.random()*((amigos.length)));
+        console.log(posicionSorteada);
+        if(posicionSorteada.length == amigos.length){
+            alert("Todos los amigos sorteados");
+            reiniciarAmigo();
+        }else{ 
+        if(posicionSorteada.includes(sorteo)){
+        return sortearAmigo();
+        }else{
+            posicionSorteada.push(sorteo);
+            console.log(sorteo);
+            let amigoSorteado = amigos[sorteo];
+            document.getElementById('listaAmigos').innerHTML="";
+            document.getElementById('resultado').innerHTML = `<li>${amigoSorteado}<li>`;
+        }
     }
-}
-}else{
-    alert("Ingrese mas de 2 personas para sortear");
+    }else{
+        alert("Ingrese mas de 2 personas para sortear");
     return;
-}
+    }
 }
 
 function reiniciarAmigo(){
@@ -60,6 +62,8 @@ function reiniciarAmigo(){
     posicionSorteada = [];
     document.getElementById("listaAmigos").innerHTML = "";
     document.getElementById("resultado").innerHTML = "";
+    document.getElementById('plus').removeAttribute('disabled');
+    document.querySelector('#amigo').value="";
     console.log(amigos);
     console.log(posicionSorteada);
 }
