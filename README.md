@@ -9,6 +9,7 @@
 <li>Sorteo aleatorio: Realiza el sorteo para asignar un amigo secreto a cada participante.</li>  
 <li>Sortea un solo "amigo secreto" por ronda.</li>
 <li>Solo se puede iniciar con mas de 2 amigos.</li>
+<li>Al INICIAR el sorteo no se permite ingresar mas nombres a la lista.</li>
 </ol>
 
 <h1>Tecnologías Utilizadas</h1>
